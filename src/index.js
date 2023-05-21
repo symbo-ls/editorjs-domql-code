@@ -42,7 +42,7 @@ export default class Warning {
   static get toolbox() {
     return {
       icon: IconWarning,
-      title: 'Warning',
+      title: 'Spacing',
     };
   }
 
@@ -63,7 +63,7 @@ export default class Warning {
    * @returns {string}
    */
   static get DEFAULT_TITLE_PLACEHOLDER() {
-    return 'Title';
+    return 'Spacing in px';
   }
 
   /**
@@ -123,16 +123,16 @@ export default class Warning {
       contentEditable: !this.readOnly,
       innerHTML: this.data.title,
     });
-    const message = this._make('div', [this.CSS.input, this.CSS.message], {
-      contentEditable: !this.readOnly,
-      innerHTML: this.data.message,
-    });
+    // const message = this._make('div', [this.CSS.input, this.CSS.message], {
+    //   contentEditable: !this.readOnly,
+    //   innerHTML: this.data.message,
+    // });
 
     title.dataset.placeholder = this.titlePlaceholder;
-    message.dataset.placeholder = this.messagePlaceholder;
+    // message.dataset.placeholder = this.messagePlaceholder;
 
     container.appendChild(title);
-    container.appendChild(message);
+    // container.appendChild(message);
 
     return container;
   }
@@ -145,11 +145,12 @@ export default class Warning {
    */
   save(warningElement) {
     const title = warningElement.querySelector(`.${this.CSS.title}`);
-    const message = warningElement.querySelector(`.${this.CSS.message}`);
+    // const message = warningElement.querySelector(`.${this.CSS.message}`);
 
     return Object.assign(this.data, {
-      title: title.innerHTML,
-      message: message.innerHTML,
+      space: title.innerHTML,
+      spacingType: 'px', // TODO add dropdown
+      // message: message.innerHTML,
     });
   }
 
@@ -184,7 +185,8 @@ export default class Warning {
    */
   static get sanitize() {
     return {
-      title: {},
+      space: {},
+      spacingType: {},
       message: {},
     };
   }
