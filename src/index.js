@@ -103,8 +103,8 @@ export default class Spacing {
     this.api = api;
     this.readOnly = readOnly;
 
-    this.titlePlaceholder = config.titlePlaceholder || Warning.DEFAULT_TITLE_PLACEHOLDER;
-    this.messagePlaceholder = config.messagePlaceholder || Warning.DEFAULT_MESSAGE_PLACEHOLDER;
+    this.titlePlaceholder = config.titlePlaceholder || Spacing.DEFAULT_TITLE_PLACEHOLDER;
+    this.messagePlaceholder = config.messagePlaceholder || Spacing.DEFAULT_MESSAGE_PLACEHOLDER;
 
     this.data = {
       title: data.title || '',
