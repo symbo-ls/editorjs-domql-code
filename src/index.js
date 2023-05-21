@@ -24,7 +24,7 @@ require('./index.css').toString();
  * @property {string} titlePlaceholder - placeholder to show in warning`s title input
  * @property {string} messagePlaceholder - placeholder to show in warning`s message input
  */
-export default class Warning {
+export default class Spacing {
 
   /**
    * Notify core that read-only mode is supported
@@ -146,6 +146,7 @@ export default class Warning {
   save(warningElement) {
     const title = warningElement.querySelector(`.${this.CSS.title}`);
     // const message = warningElement.querySelector(`.${this.CSS.message}`);
+    title.style.height = `${Number(title.innerHTML)}px`;
 
     return Object.assign(this.data, {
       space: title.innerHTML,
